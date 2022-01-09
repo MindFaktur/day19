@@ -12,13 +12,20 @@ public class regexProblem {
     {
         regexProblem RP = new regexProblem();
         System.out.println("Please enter your first Name");
-        String userName = SC.next();
-        if( RP.regexChecker("^[A-Z][a-z]{3,}",userName) )
-        {
-            System.out.println("Yes");
-            return;
+        String firstName = SC.next();
+        System.out.println("Please enter your Last Name");
+        String lastName = SC.next();
+        RP.printsValidOrInvalid(RP.regexChecker("^[A-Z][a-z]{3,}",firstName),firstName,"First Name" );
+        RP.printsValidOrInvalid(RP.regexChecker("^[A-Z][a-z]{3,}",lastName),lastName,"Last Name" );
+
+    }
+
+    private void printsValidOrInvalid(boolean val, String name, String userField){
+        if ( val ){
+            System.out.println(userField + " " + name + " is Valid ");
+        }else{
+            System.out.println(userField + " " + name + " is Invalid ");
         }
-        System.out.println("no");
     }
 
     private boolean regexChecker(String regex, String name)

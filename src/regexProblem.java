@@ -11,12 +11,21 @@ public class regexProblem {
     public static void main(String[] args)
     {
         regexProblem RP = new regexProblem();
+
         System.out.println("Please enter your first Name");
         String firstName = SC.next();
+
         System.out.println("Please enter your Last Name");
         String lastName = SC.next();
+
+        System.out.println("Please enter your Email");
+        String email = SC.next();
+
+        String specialCharacters = "^[a-zA-Z0-9][a-zA-Z0-9+_.-]+@[a-zA-Z0-9][a-zA-Z0-9]+[+_.-][a-zA-Z0-9]+$";
+
         RP.printsValidOrInvalid(RP.regexChecker("^[A-Z][a-z]{3,}",firstName),firstName,"First Name" );
         RP.printsValidOrInvalid(RP.regexChecker("^[A-Z][a-z]{3,}",lastName),lastName,"Last Name" );
+        RP.printsValidOrInvalid(RP.regexChecker(specialCharacters,email),email,"Email-id" );
 
     }
 
